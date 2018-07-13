@@ -1,0 +1,273 @@
+ <div class="container" >
+  <div class="row">
+    
+        <div class="col-md-5 col-md-offset-1">
+        	
+      	<div  class="ch">
+      		<div class="panel panel-default">
+  <div class="panel-heading center">commande</div>
+<div class="panel-body">
+        	<form class="form-horizontal" action="command" method="get">
+ 
+  <div class="form-group">
+  	<div class="row">
+  		<label class="control-label col-sm-3" >Nom_client:</label>
+  		 <div class="col-sm-9">
+      
+    
+     <input class="form-control" name="nom_cl" type="text">  
+     
+     </div>
+  		
+  	</div>
+     
+  </div>
+  <div class="form-group">
+  	<div class="row">
+  		<label class="control-label col-sm-3" >tel_client:</label>
+  		 <div class="col-sm-9">
+      
+    
+     <input class="form-control" name="tel_cl"  type="tel">  
+     
+     </div>
+  		
+  	</div>
+     
+  </div>
+  <div class="form-group">
+  	<div class="row">
+  		<label class="control-label col-sm-3" >ID_produits:</label>
+  		 <div class="col-sm-9">
+      
+    <textarea class="form-control" name="id_pro">
+    	
+    </textarea>
+      
+     
+     </div>
+  		
+  	</div>
+     
+  </div>
+ <div class="form-group">
+  	<div class="row">
+  		<label class="control-label col-sm-3" >Date_cmd:</label>
+  		 <div class="col-sm-9">
+
+       <input class="form-control" name="date_cmd" type="date">  
+     
+     
+     </div>
+  		
+  	</div>
+     
+  </div>
+   <div class="form-group">
+  	<div class="row">
+  		<label class="control-label col-sm-3" >Date_livrasion:</label>
+  		 <div class="col-sm-9">
+
+       <input class="form-control" name="date_lv"  type="date">  
+     
+     
+     </div>
+  		
+  	</div>
+     
+  </div>
+  </div> 
+  <div class="panel-footer">
+  <div class="form-group">
+  	<div class="row">
+  		
+  		 <div class="col-sm-9">
+        <input class="btn btn-default btn-md "  type="submit" id="ii">
+      
+     </div>
+  		
+  	</div>
+     
+  </div>
+  </div>
+  </form>
+  
+  
+  </div><!--ch-->
+  
+ 
+
+</div></div><!-- end of form-->
+
+
+<div  class="rt">
+  
+    
+        <div class="col-md-7 col-md-offset-1">
+   <div class="panel panel-default">
+  <div class="panel-heading center">list des produits </div>
+  
+  
+ 
+  
+  <table id="example" class="table table-striped " cellspacing="0" width="200%">
+        <thead>
+            <tr>
+            	<th>ID_produit</th>
+                <th>Nom_produit</th>
+                <th>Prix</th>
+                <th>Magasin</th>
+                <th>categorie</th>
+               
+                <th>     <span class="glyphicon glyphicon-cog"></span></th>
+            </tr>
+        </thead>
+       
+        <tbody>
+        <tbody>
+    <?php foreach($this->prodt as $p) : ?>
+      <tr>
+               <td><?php echo $this->escape($p->id_produit);?></td>
+               <td><?php echo $this->escape($p->nom_produit);?></td>
+               <td><?php echo $this->escape($p->prix);?></td>
+               <td><?php 
+               
+              
+               if($p->id_magasin=="1"){
+               	echo "magasin_A";
+               }else{
+               	echo"magasin_B";
+               }
+               
+               ?></td>
+               <td><?php 
+             
+               	
+               	  if($p->id_categorie=="1"){
+               	echo "material_info";
+               }else{
+               	echo"vetements";
+               }
+               	
+               	
+               	?></td>
+   
+               <td>
+            
+ <a data-toggle="modal" data-target="#myModal" <?php $i=$p->id_produit; ?> <button class="btn btn-danger btn-sm" ><span class="glyphicon glyphicon-trash "></span></button></a>
+
+  <a href="<?php echo $this->url(array('controller'=>'index', 'action'=>'modify', 'id'=>$p->id_produit));?>"> <button class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit "></span></button></a>             
+                </td>
+      </tr>
+     <?php endforeach; ?>
+  
+ </tbody>
+    </table>
+  
+   
+</div><!-- end of all product --></div>
+ 
+
+
+
+
+
+
+  
+    
+        <div class="col-md-7 col-md-offset-1">
+   <div class="panel panel-default">
+  <div class="panel-heading center">list de  produits vendus</div>
+  
+  
+ 
+  
+  <table id="example" class="table table-striped " cellspacing="0" width="200%">
+        <thead>
+            <tr>
+            	<th>ID_cmd</th>
+                <th>Nom_produit</th>
+                <th>Prix</th>
+                <th>date_cmd</th>
+                <th>date_livarions</th>
+               
+               
+            </tr>
+        </thead>
+       
+        <tbody>
+        <tbody>
+    <?php foreach($this->vend as $p) : ?>
+      <tr>
+               <td><?php echo $this->escape($p->n_commande);?></td>
+               <td><?php echo $this->escape($p->nom_produit);?></td>
+               <td><?php echo $this->escape($p->prix);?></td>
+               <td><?php echo $this->escape($p->datecommande);?></td>
+               <td><?php echo $this->escape($p->datelivrasion);?></td>
+   
+               
+      </tr>
+     <?php endforeach; ?>
+  
+ </tbody>
+    </table>
+  
+   </div>
+</div>
+  </div>
+  </div>
+  <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">delete produit</h4>
+      </div>
+      <div class="modal-body">
+               <form action="<?php echo $this->url(array('action'=>'delete')); ?>"
+method="post">
+<div>
+<input type="hidden" name="id" value="<?php echo $i; ?>" />
+
+<div class="form-group">
+ 
+  		<div class="row">
+  		 <div class="col-md-3 col-md-offset-3">
+  		 	
+       <input   class="btn btn-danger btn-lg   "type="submit" name="del" value="Yes" />
+    
+     
+  		</div>
+  		<div class="col-md-6 ">
+  			
+  			  <input   class="btn btn-default btn-lg  "type="submit" name="del" value="No" />
+  		</div>
+  	</div>
+     
+  </div>
+ 
+</div>
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+  </div>
+  
+   
+
+  
+  
+  
+  
+  <!--con-->
+
+  

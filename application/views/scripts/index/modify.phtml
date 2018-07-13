@@ -1,0 +1,96 @@
+
+
+    
+        <div class="col-md-5 col-md-offset-3">
+
+
+   
+<?php // $i=Zend_Controller_Front::getInstance()->getRequest()->getParam( 'id' );
+
+//echo "this is i :".$i;
+?>
+
+
+<div class="panel panel-default">
+	<div class="panel-heading center">modify produit</div>
+  <div class="panel-body">
+  	
+  	
+ 
+ <form class="form-horizontal" action="<?php echo $this->url(array('controller'=>'index', 'action'=>'modify', 'id'=>Zend_Controller_Front::getInstance()->getRequest()->getParam( 'id' )));?>" method="post">
+  <div class="form-group">
+  	<div class="row">
+  		<label class="control-label col-sm-3" >Nom_Produit:</label>
+  		 <div class="col-sm-9 " id="k">
+     
+      <?php  echo $this->form->getElement('nom_produit')->setAttrib('class', 'form-control')->render();
+                 
+      
+      ?>
+     
+     </div>
+  		
+  	</div>
+     
+  </div>
+    <div class="form-group">
+  	<div class="row">
+  		<label class="control-label col-sm-3" >prix:</label>
+  		 <div class="col-sm-9 " id="pp">
+      
+      <?php  echo $this->form->getElement('prix')->setAttrib('class', 'form-control')->render();?>
+     
+     </div>
+  		
+  	</div>
+     
+  </div>
+    
+  <div class="form-group">
+  	<div class="row">
+  		<label class="control-label col-sm-3" >magasin:</label>
+  		 <div class="col-sm-9 k">
+      
+      <?php  echo $this->form->getElement('id_magasin')->setAttrib('class', 'form-control')->render();?>
+     
+     </div>
+  		
+  	</div>
+     
+  </div>
+  <div class="form-group">
+  	<div class="row">
+  		<label class="control-label col-sm-3" >categorie:</label>
+  		 <div class="col-sm-9 k">
+      
+      <?php  echo $this->form->getElement('id_categorie')->setAttrib('class', 'form-control')->render();?>
+     
+     </div>
+  		
+  	</div>
+     
+  </div>
+ </div>
+  <div class="panel-footer">
+  	
+  	 <div class="form-group">
+  	<div class="row">
+  		
+  		 <div class="col-sm-9  k">
+      
+      
+      <?php  echo $this->form->getElement('submit')->setAttrib('class', 'btn btn-default btn-md')->render();?>
+     </div>
+  		
+  	</div>
+     
+  </div>
+  	
+  </div>
+
+</form>
+  	
+  	
+  </div>
+  </div>
+  

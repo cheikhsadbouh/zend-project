@@ -1,0 +1,97 @@
+<?php
+ echo $this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
+ echo $this->headTitle()->setSeparator(' - ');
+ echo $this->headTitle('Zend Framework Tutorial');
+ echo $this->headMeta()->appendName('viewport', 
+        'width=device-width, initial-scale=1.0') ;
+		
+
+		
+ 
+  
+  echo $this->headLink()->prependStylesheet("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+    
+	
+	echo   $this->headScript()->prependFile($this->baseUrl('/js/jquery-1.11.0.min.js'));
+echo   $this->headScript()->prependFile($this->baseUrl('/js/bootstrap.min.js'));
+echo $this->headLink()->prependStylesheet($this->baseUrl().'/css/my.css'); 
+  echo $this->headLink()->prependStylesheet($this->baseUrl().'/css/bootstrap.min.css'); 
+ echo $this->doctype(); ?>
+ 
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	 
+<?php echo $this->headMeta(); ?>
+<?php echo $this->headTitle(); ?>
+<?php echo $this->headScript(); ?>
+
+</head>
+<body>
+
+  	 <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      
+      	<a class='navbar-brand' href='#'>
+       GM
+      	</a>
+      	
+      
+    </div>
+  
+    <ul class="nav navbar-nav navbar-right">
+     <li class="active"><a href="<?php echo $this->url(array('controller'=>'index', 'action'=>'index'));?>""><span class="glyphicon glyphicon-home"></span> Home</a></li>
+      <li><a href="<?php echo $this->url(array('controller'=>'index', 'action'=>'command'));?>""  data-toggle="modal"><span class="glyphicon glyphicon-log-in"></span> commande</a></li>
+    </ul>
+  </div>
+</nav>
+   <!-- end navbar----->
+   
+
+
+
+
+
+
+
+
+<div id="content">
+	
+
+<?php echo $this->layout()->content; ?>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-----begin of footer------>
+
+ 
+<footer class="footer" id="foot">
+    <div class="container">
+        
+         <li id="fa"class="fa fa-facebook-square"></li>
+         <li id ="tw" class="fa fa-twitter-square"></li>
+         <li  id="sn"class="fa fa-snapchat"></li>
+    </div>
+</footer>
+
+
+
+ 
+</body>
+
+</html>
